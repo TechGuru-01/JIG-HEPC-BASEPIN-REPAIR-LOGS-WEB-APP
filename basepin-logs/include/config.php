@@ -2,7 +2,7 @@
 $host = 'localhost';
 $user = 'root';
 $pass = ''; 
-$db   = 'basepin_db'; 
+$db   = 'inspection_db'; 
 $conn = new mysqli($host, $user, $pass, $db);
 
 if ($conn->connect_error) {

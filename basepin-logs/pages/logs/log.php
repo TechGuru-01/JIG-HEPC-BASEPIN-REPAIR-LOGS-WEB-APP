@@ -24,8 +24,6 @@ require_once "../../include/logFunction.php";
         <thead>
             <tr>
                 <?php 
-                $cols = ['section','control_number', 'technician','verification_date','quarter', 'def_remarks', 'corr_status', 'corr_remarks','crack_status', 'mat_status','created_at'];
-                
                 foreach($cols as $column): ?>
                     <th><?php echo ucwords(str_replace('_', ' ', $column)); ?></th>
                 <?php endforeach; ?>

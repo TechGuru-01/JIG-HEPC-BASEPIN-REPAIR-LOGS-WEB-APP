@@ -1,61 +1,83 @@
+<?php
+require_once "../../include/config.php";
+require_once "../../include/logFunction.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Mobile App</title>
-    <link rel="stylesheet" href="../../pages/test/test.css">
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="../../component/navbar/nav.css">
+    <link rel="stylesheet" href="../../style.css  ">
+    <link rel="stylesheet" href="../../component/navbar/nav.css  ">
+    <link rel="stylesheet" href="./log.css  ">
+    <link rel="stylesheet" href="../../component/dashboardHeader/dashboardHeader.css ">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <title>Dashboard</title>
 </head>
 <body>
-
-<?php include "../../component/navbar/nav.php" ?>
-
-<div class="form-container">
-    <div class="tabs">
-        <div class="tab active" onclick="openTab('form')">Input Form</div>
-        <div class="tab" onclick="openTab('logs')">View Logs</div>
-    </div>
-
-    <div class="container">
-        <div id="form-section" class="content-view">
-            <div class="box-card">
-                <label>Name</label>
-                <input type="text" placeholder="Enter name">
-                
-                <label>Message</label>
-                <textarea placeholder="Details here..."></textarea>
-                
-                <button class="btn">Save Entry</button>
-            </div>
-        </div>
-
-        <div id="logs-section" class="content-view hidden">
-            <div class="box-card log-item">
-                <div class="log-meta"><strong>Juan</strong> • 10:45 AM</div>
-                <p>Checked inventory stocks.</p>
-            </div>
-            
-            <div class="box-card log-item">
-                <div class="log-meta"><strong>Maria</strong> • 09:12 AM</div>
-                <p>System update completed.</p>
-            </div>
-        </div>
-    </div>
+    <?php include '../../component/navbar/nav.php'?>
+    <div class="logs-content">
+        <?php include '../../component/dashboardHeader/dashboardHeader.php'?>
+         <hr>
+        <div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <?php 
+                foreach($cols as $column): ?>
+                    <th><?php echo ucwords(str_replace('_', ' ', $column)); ?></th>
+                <?php endforeach; ?>
+            </tr>
+        </thead>
+       <tbody>
+    <?php if (mysqli_num_rows($result) > 0): ?>
+        <?php while($row = mysqli_fetch_assoc($result)): ?>
+            <tr>
+                <?php foreach ($cols as $column): ?>
+                    <td>
+                        <?php 
+                            // 1. Handling para sa Photos (View Button)
+                            if (strpos($column, 'photo') !== false) {
+                                if (!empty($row[$column])) {
+                                    $imgPath = "../../src/uploads/" . $row[$column];
+                                    echo "<button type='button' class='view-btn' onclick=\"openModal('$imgPath')\">
+                                            <span class='material-icons-outlined' style='font-size:16px;'>image</span> View
+                                          </button>";
+                                } else {
+                                    echo "<span class='no-photo'>No Image</span>";
+                                }
+                            } 
+                            // 2. Handling para sa Status (Pills)
+                            elseif (strpos($column, 'status') !== false) {
+                                $status = strtolower($row[$column]);
+                                $statusClass = ($status == 'ok') ? 'status-ok' : 'status-ng';
+                                echo "<span class='status-pill $statusClass'>" . strtoupper($row[$column]) . "</span>";
+                            }
+                            // 3. Normal Text
+                            else {
+                                echo htmlspecialchars($row[$column] ?? ''); 
+                            }
+                        ?>
+                    </td>
+                <?php endforeach; ?>
+            </tr>
+        <?php endwhile; ?>
+    <?php else: ?>
+        <tr>
+            <td colspan="27" style="text-align:center; padding: 20px;">Walang laman ang database, bitchass.</td>
+        </tr>
+    <?php endif; ?>
+</tbody>
+    </table>
 </div>
-    <script>
-        function openTab(name) {
-            const sections = document.querySelectorAll('.content-view');
-            const tabs = document.querySelectorAll('.tab');
-            
-            sections.forEach(s => s.classList.add('hidden'));
-            tabs.forEach(t => t.classList.remove('active'));
+    </div>
 
-            document.getElementById(name + '-section').classList.remove('hidden');
-            event.currentTarget.classList.add('active');
-        }
-    </script>
+    <div id="imageModal" class="modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="fullImage">
+    <div id="caption"></div>
+
+</div>
+<script src="../../component/dashboardHeader/dashboardHeader.js"></script>
 </body>
 </html>

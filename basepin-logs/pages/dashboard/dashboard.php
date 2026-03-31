@@ -1,3 +1,6 @@
+<?php
+require_once "../../include/config.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +11,6 @@
     <link rel="stylesheet" href="./dashboard.css  ">
     <link rel="stylesheet" href="../../component/dashboardHeader/dashboardHeader.css  ">
     <link rel="stylesheet" href="../../component/dashboardForm/dashboardForm.css  ">
-    <link rel="stylesheet" href="../../component/formFooter/formFooter.css  ">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <title>Dashboard</title>
 </head>
@@ -18,9 +20,10 @@
         <?php include "../../component/dashboardHeader/dashboardHeader.php"?>
         <hr>
         <?php include "../../component/dashboardForm/dashboardForm.php"?>
-        <hr id="footer-line">
-        <?php include "../../component/formFooter/formFooter.php"?>
     </div>
+<script src="../../component/dashboardForm/dashboardForm.js"></script>
 <script src="../../component/dashboardHeader/dashboardHeader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="dashboard.js"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
-document.querySelector("#loginForm").addEventListener("submit", function (e) {
+document.querySelector("#signupForm").addEventListener("submit", function (e) {
   e.preventDefault();
-  console.log("Form Action being targeted:", this.action);
 
   let formData = new FormData(this);
 
@@ -19,7 +18,7 @@ document.querySelector("#loginForm").addEventListener("submit", function (e) {
           timerProgressBar: true,
           timer: 1500,
         }).then(() => {
-          window.location.href = "pages/dashboard/dashboard.php";
+          this.reset();
         });
       } else {
         Swal.fire({

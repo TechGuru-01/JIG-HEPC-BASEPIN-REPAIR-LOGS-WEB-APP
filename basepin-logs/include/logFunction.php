@@ -1,5 +1,8 @@
 <?php
-$cols = ['section','control_number', 'technician','verification_date','quarter', 'def_remarks', 'corr_status', 'corr_remarks','crack_status', 'mat_status','created_at'];
+$cols = ['section','control_number', 'technician_name','date_of_verification'];
+$sql = "SELECT * FROM terminal_inspections
+        ORDER BY date_of_verification DESC";
 
-$sql = "SELECT * FROM repair_logs ORDER BY created_at";
-$result = $conn->query($sql);
+$result = mysqli_query($conn, $sql);
+                
+?>

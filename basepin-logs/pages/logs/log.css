@@ -1,0 +1,286 @@
+/* --- MAIN CONTAINER & LAYOUT --- */
+.logs-content {
+  margin: 40px auto;
+  width: 90%;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
+  min-height: 85vh;
+  border-radius: 16px;
+  border: 1px solid #dee2e6;
+  background: #fff;
+  padding-bottom: 30px;
+}
+
+.header-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  margin: 10px auto 20px auto;
+  gap: 15px;
+}
+
+.filter-label {
+  font-weight: 800;
+  color: #333;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.action-container2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* --- PREMIUM CALENDAR STYLE --- */
+.date-filter {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1.5px solid #e0e0e0;
+  overflow: hidden;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 42px;
+}
+
+.date-filter:focus-within {
+  border-color: #0288d1;
+  box-shadow: 0 4px 12px rgba(2, 136, 209, 0.15);
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.input-group span {
+  font-size: 18px !important;
+  color: #0288d1;
+  margin-right: 8px;
+}
+
+.input-group input[type="date"] {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+  background: transparent;
+}
+
+.date-separator {
+  background: #f1f4f9;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #999;
+  text-transform: uppercase;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+}
+
+/* --- IMPROVED SEARCH BAR --- */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 0 15px;
+  border-radius: 12px;
+  border: 1.5px solid #e0e0e0;
+  width: 250px; /* Default width */
+  height: 42px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.search-box:focus-within {
+  border-color: #0288d1;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(2, 136, 209, 0.15);
+}
+
+.search-box span {
+  color: #0288d1;
+  font-size: 20px !important;
+  margin-right: 10px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.search-box input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* --- EXCEL BUTTON --- */
+.excel-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #1d6f42;
+  color: white;
+  border: none;
+  padding: 0 18px;
+  height: 42px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 13px;
+}
+
+.excel-btn:hover {
+  background-color: #145a32;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(29, 111, 66, 0.3);
+}
+
+/* --- TABLE STYLES --- */
+.table-wrapper {
+  max-height: 720px;
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: auto;
+  overflow-y: auto;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  background: #fff;
+}
+
+table {
+  width: 100%;
+  max-height: 1080px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+thead {
+  background-color: #d32f2f;
+  color: #fff;
+}
+
+th {
+  padding: 15px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #f1f1f1;
+  font-size: 14px;
+  color: #444;
+}
+
+tbody tr:hover {
+  background-color: #fcfcfc;
+}
+
+/* ACTION BUTTONS (VIEW/DELETE) */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.action-buttons button {
+  width: 45px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.btn-view {
+  background: #e1f5fe;
+  color: #0288d1;
+}
+.btn-delete {
+  background: #ffebee;
+  color: #d32f2f;
+}
+
+.sel_btn {
+  background: #c6ffe6;
+  color: #15c951;
+  font-weight: 700;
+}
+.sel_btn:hover {
+  background: #15c951;
+  color: #ffebee;
+}
+.sel_btn.active {
+  background: #05ac3d !important;
+  color: #ffffff !important;
+  border: 1px solid #15c951;
+}
+.sel_btn.active:hover {
+  background: #ff4d4d !important;
+  border-color: #ff4d4d !important;
+}
+
+.sel_btn::after {
+  font-size: 10px;
+  content: "Select";
+}
+
+.sel_btn.active::after {
+  content: "Selected";
+}
+
+.sel_btn.active:hover::after {
+  content: "Unselect";
+}
+
+.btn-view:hover {
+  background: #0288d1;
+  color: #fff;
+}
+.btn-delete:hover {
+  background: #d32f2f;
+  color: #fff;
+}
+
+@media (max-width: 1024px) {
+  .header-action {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .action-container2 {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .search-box,
+  .date-filter,
+  .excel-btn {
+    width: 100% !important; /* Full width sa mobile */
+    justify-content: center;
+  }
+
+  .search-box:focus-within {
+    width: 100% !important;
+  }
+}

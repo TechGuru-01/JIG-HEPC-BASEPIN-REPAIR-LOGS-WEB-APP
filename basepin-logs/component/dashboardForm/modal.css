@@ -1,0 +1,57 @@
+/* --- MODAL SPECIFIC STYLES --- */
+
+.modal-container {
+  display: none; /* Default hidden */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Mas dark nang konti para focus sa form */
+  overflow-y: auto;
+  backdrop-filter: blur(2px); /* Optional: pampa-aesthetic */
+}
+
+/* Container ng form sa loob ng modal */
+.modal-container .main-form-modal {
+  background-color: #ffffff;
+  margin: 5vh auto; /* Center vertically using viewport height */
+  width: 90%;
+  max-width: 850px;
+  padding: 25px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  /* Ginaya ang grid system ng original form mo */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Para sa mobile responsiveness ng modal */
+@media (max-width: 768px) {
+  .modal-container .main-form-modal {
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    border-radius: 0;
+    min-height: 100vh;
+    grid-template-columns: 1fr; /* Single column sa mobile */
+    padding: 20px 15px;
+  }
+
+  /* Siguraduhin na ang mga elements sa loob ay mag-span ng full width */
+  .modal-container .main-form-modal .full-width,
+  .modal-container .main-form-modal .checkbox-group,
+  .modal-container .main-form-modal .button-container,
+  .modal-container .main-form-modal .form-section {
+    grid-column: span 1;
+  }
+}

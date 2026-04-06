@@ -1,0 +1,14 @@
+.dashboard-content {
+  margin: 40px auto;
+  width: 90%;
+  box-shadow: 10px 10px 15px rgba(110, 109, 109, 0.904);
+  height: 85vh;
+  border-radius: 16px;
+  border: 1px solid #dee2e6;
+  overflow: auto;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #d1d2d2;
+}

@@ -1,0 +1,154 @@
+/* --- NAV BASE --- */
+nav {
+    width: 100%;
+    height: 72px;
+    background-color: rgba(244, 241, 241, 0.864);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Inayos ko shadow mo, ang dumi nung dati */
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    z-index: 1000;
+}
+
+.menu {
+    display: flex;
+    padding: 0 40px;
+    align-items: center;
+    justify-content: space-between; /* Eto ang maghihiwalay sa Logo at Profile */
+    height: 100%;
+}
+
+.logo img {
+    width: 110px;
+    display: block;
+}
+/* --- PROFILE & NAME WRAPPER --- */
+.user-profile-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+    max-width: 250px;
+}
+
+.name {
+    flex-shrink: 1; 
+    overflow: hidden;
+}
+
+.name p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6d5f5f;
+    white-space: nowrap;      
+    overflow: hidden;         
+    text-overflow: ellipsis;  
+}
+
+/* --- PROFILE FIXED --- */
+.profile-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; 
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+    .user-profile-wrapper {
+        gap: 8px;
+        max-width: 150px; 
+    }
+    
+    .name p {
+        font-size: 12px; 
+    }
+}
+
+.profile-trigger {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.nav-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #d32f2f;
+    transition: 0.3s;
+}
+
+/* --- DROPDOWN (NO-SHIFT) --- */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #fff;
+    min-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid #eee;
+    padding: 8px 0;
+    z-index: 9999;
+}
+
+/*.profile-container:hover .dropdown-menu {
+    display: block;
+} */      /* yan yung luma*/
+
+.dropdown-menu.show{
+    display: block;
+} /* eto yung bago*/
+
+.dropdown-header {
+    padding: 8px 15px;
+    font-size: 11px;
+    color: #999;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.dropdown-menu hr {
+    margin: 5px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background: #f8f8f8;
+    color: #d32f2f;
+}
+
+.logout-link {
+    color: #d32f2f !important;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    nav { height: 65px; }
+    .menu { padding: 0 20px; }
+    .logo img { width: 90px; }
+    .nav-avatar { width: 35px; height: 35px; }
+
+    .user-profile-wrapper {
+        gap: 8px;
+        max-width: 150px; 
+    }
+    
+    .name p {
+        font-size: 12px; 
+        
+    }
+}

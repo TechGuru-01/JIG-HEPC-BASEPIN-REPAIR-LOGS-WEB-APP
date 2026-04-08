@@ -1,0 +1,137 @@
+.modal-container {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); 
+  overflow-y: auto;
+  backdrop-filter: blur(2px); 
+}
+
+
+.modal-container .main-form-modal {
+  background-color: #ffffff;
+  margin: 5vh auto; 
+  width: 90%;
+  max-width: 850px;
+  padding: 25px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+
+#imageZoomModal {
+    display: none; 
+    position: fixed !important; 
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;    
+    height: 100vh !important;   
+    margin: 0 !important;
+    padding: 0 !important;
+    background: rgba(0, 0, 0, 0.95) !important;
+    z-index: 999999 !important; 
+    
+
+    display: flex;
+    align-items: center;       
+    justify-content: center;     
+    overflow: hidden !important; 
+}
+
+#imgFullView {
+    display: block;
+    margin: auto;
+    max-width: 90vw !important;  
+    max-height: 80vh !important; 
+    object-fit: contain;
+
+    position: relative !important; 
+    top: auto !important;
+    left: auto !important;
+}
+
+
+.close-zoom {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.image-preview {
+    position: relative;
+    cursor: pointer !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    min-height: 180px;
+    border: 1px solid #ccc;
+}
+
+.image-preview::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.image-preview::after {
+    content: "VIEW IMAGE";
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    z-index: 2;
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none; 
+}
+
+.image-preview:hover::before, 
+.image-preview:hover::after {
+    opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+  .modal-container .main-form-modal {
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    border-radius: 0;
+    min-height: 100vh;
+    grid-template-columns: 1fr; 
+    padding: 20px 15px;
+  }
+
+
+  .modal-container .main-form-modal .full-width,
+  .modal-container .main-form-modal .checkbox-group,
+  .modal-container .main-form-modal .button-container,
+  .modal-container .main-form-modal .form-section {
+    grid-column: span 1;
+  }
+}

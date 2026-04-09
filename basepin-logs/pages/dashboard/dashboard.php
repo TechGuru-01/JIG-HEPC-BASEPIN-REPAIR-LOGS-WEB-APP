@@ -26,6 +26,7 @@ require_once '../../include/auth_checker.php';
     </div>
 <script src="../../component/Forms/dashboardForm.js"></script>
 <script src="../../component/dashboardHeader/dashboardHeader.js"></script>
+<script src="../../component/Forms/generaterows.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="dashboard.js"></script>
 <script src="../../component/navbar/nav.js"></script>

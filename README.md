@@ -1,4 +1,4 @@
-# Basepin Repair Logs Application
+# Basepin Repair Logs Web Application
 
 A specialized, full-stack database application designed to monitor, document, and analyze the operational status of industrial basepins. Built with an agile, modular architecture, the system provides engineering and maintenance teams with a centralized administration dashboard that serves as a single source of truth for equipment verification histories, visual inspections, and repair logs.
 

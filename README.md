@@ -7,7 +7,6 @@ A specialized, full-stack database application designed to monitor, document, an
 * Visual Verification Tracking: Supports image upload logs to store "Before" and "After" status photos for every inspected basepin, providing clear visual evidence of the component's state and any executed repairs.
 * Detailed Diagnostic & Fix Logging: Captures comprehensive technical records, allowing technicians to explicitly document what fixes were applied or confirm that a basepin is cleared with no issues.
 * Unique Component Serialization: Indexes records by the specific basepin number to ensure absolute asset traceability throughout its operational lifecycle.
-* Historical Trend Analysis: Stores chronological inspection data to help engineering teams identify recurring faults, evaluate hardware stability, and plan preventive maintenance.
 * Scalable Layout Architecture: Implements efficient backend data pagination and high-contrast table grids optimized to handle thousands of historical verification records smoothly.
 
 ## Tech Stack

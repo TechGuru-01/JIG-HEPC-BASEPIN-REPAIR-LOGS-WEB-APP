@@ -1,29 +1,33 @@
 # Basepin Repair Logs Application
 
-A specialized, full-stack database application designed to record, track, and analyze industrial hardware diagnostics and component repair logs. Built with an agile, modular architecture, the system provides engineering and maintenance teams with a centralized administration dashboard that serves as a single source of truth for equipment service histories.
+A specialized, full-stack database application designed to monitor, document, and analyze the operational status of industrial basepins. Built with an agile, modular architecture, the system provides engineering and maintenance teams with a centralized administration dashboard that serves as a single source of truth for equipment verification histories, visual inspections, and repair logs.
 
 ## Key Features
-* Detailed Diagnostic Logging: Captures comprehensive technical records, including precise fault descriptions, diagnostic steps, error codes, and testing results.
-* Component Tracking & Replacement: Tracks exact inventory and part allocations, documenting hardware replacements, serial numbers, and component costs.
-* Historical Trend Analysis: Stores chronological service data to help engineering teams identify recurring faults, evaluate hardware stability, and plan preventive maintenance.
-* Scalable Layout Architecture: Implements efficient backend data pagination and high-contrast table grids optimized to handle thousands of historical records smoothly.
+* Multi-Basepin Form Processing: Features an advanced, flexible input form capable of handling multiple basepin entries simultaneously, significantly reducing processing time for batch maintenance.
+* Visual Verification Tracking: Supports image upload logs to store "Before" and "After" status photos for every inspected basepin, providing clear visual evidence of the component's state and any executed repairs.
+* Detailed Diagnostic & Fix Logging: Captures comprehensive technical records, allowing technicians to explicitly document what fixes were applied or confirm that a basepin is cleared with no issues.
+* Unique Component Serialization: Indexes records by the specific basepin number to ensure absolute asset traceability throughout its operational lifecycle.
+* Historical Trend Analysis: Stores chronological inspection data to help engineering teams identify recurring faults, evaluate hardware stability, and plan preventive maintenance.
+* Scalable Layout Architecture: Implements efficient backend data pagination and high-contrast table grids optimized to handle thousands of historical verification records smoothly.
 
 ## Tech Stack
 * Backend & Server: PHP, MySQL (Local XAMPP Development Environment)
-* Frontend: JavaScript, HTML5, CSS3 (High-Contrast Administration Layout)
-* Core Design Principles: Modular Code Architecture, Strict Separation of Concerns, Structural Scannability
+* Frontend: JavaScript (Dynamic Form Cloning), HTML5, CSS3 (High-Contrast Administration Layout)
+* Core Design Principles: Modular Code Architecture, Strict Separation of Concerns, File System Image Mapping
 
 ## System Workflow
-1. Technician Assessment: A technician diagnoses a hardware issue and creates a new entry detailing the equipment type and specific fault symptoms.
-2. Repair Documentation: The system updates to reflect active maintenance, logging the exact repair actions taken, time spent, and any replacement parts utilized from the warehouse.
-3. Status Verification: Post-repair validation results are logged, updating the asset status to fully operational and archiving the record into the historical log.
+1. Initial Assessment & Intake: The technician selects the targeted basepin numbers via a dynamic multi-input form, documenting the initial physical state and uploading a "Before" image.
+2. Condition & Fix Documentation: The form prompts the technician to specify the precise adjustments or repairs made. If a basepin requires no intervention and is deemed functional, it is explicitly logged as cleared.
+3. Post-Repair Verification: The technician uploads an "After" validation image to visually confirm the basepin is stable and ready for operation.
+4. Database Archiving: The backend processes the string inputs and moves uploaded images to secure local file paths, mapping the data to relational MySQL tables for permanent storage and audit transparency.
 
 ## Database Schema & Performance
-The MySQL database is structured to handle high-frequency logging using relational integrity and strategic indexing on asset identifiers and timestamp fields. This configuration enables seamless query execution, rapid text-filtering, and optimized automated reporting without risking local server lag.
+The MySQL database is structured to handle high-frequency logging using relational integrity and strategic indexing on basepin numbers, status flags, and inspection timestamp fields. This configuration enables seamless query execution, rapid text-filtering, and optimized automated reporting without risking local server lag.
 
 ## Local Installation & Setup
 1. Clone this repository into your local development environment.
 2. If executing via XAMPP, place the project directory inside the htdocs folder.
 3. Import the database schema `.sql` file using phpMyAdmin.
-4. Update the core database configuration file to match your local server port and user credentials.
-5. Launch Apache and MySQL from the XAMPP Control Panel and navigate to localhost/Basepin-Repair-Logs in your browser.
+4. Create an upload directory within the project folder to host the "Before" and "After" basepin images, ensuring proper directory write permissions.
+5. Update the core database configuration file to match your local server port and user credentials.
+6. Launch Apache and MySQL from the XAMPP Control Panel and navigate to localhost/Basepin-Repair-Logs in your browser.
